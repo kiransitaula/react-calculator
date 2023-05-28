@@ -133,6 +133,21 @@ export const Calculator = () => {
         return;
       }
 
+      if(val === "."){
+        if(lastOperator){
+          const operatorIndex = strToDisplay.lastIndexOf(lastOperator);
+
+          const numbeAfterLastOperator = strToDisplay.slice(operatorIndex);
+
+          if (numbeAfterLastOperator.includes(".")){
+            return;
+
+          }
+        }
+        if(!lastOperator && strToDisplay.includes(".")){
+          return;
+        }
+      }
       setStrToDisplay(strToDisplay + val);
     };
 
